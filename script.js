@@ -4,6 +4,7 @@ const save_btn = document.querySelector(".save-icon");
 const notes = document.querySelector(".widgets");
 const note_title = document.querySelector(".title input");
 const note_content = document.querySelector(".content textarea");
+const note_widget = document.querySelector(".widgets");
 
 notes.addEventListener("click", function (e) {
   if (
@@ -53,7 +54,7 @@ save_btn.addEventListener("click", () => {
   if (note_title.value === "" && note_content.value === "") {
     current_note.remove();
   }
-  // localStorage.setItem("myNotes", notes.innerHTML);
+  localStorage.setItem("myNotes", notes.innerHTML);
 
   note_title.value = "";
   note_content.value = "";
@@ -88,10 +89,10 @@ notes.addEventListener("click", function (e) {
   }
 });
 
-// document.addEventListener("DOMContentLoaded", () => {
-//   notes.innerHTML = localStorage.getItem('myNotes');
-// });
+document.addEventListener("DOMContentLoaded", () => {
+  notes.innerHTML = localStorage.getItem('myNotes');
+});
 
-// window.onbeforeunload = function () {
-//     return true;    // preventing page from loading
-// }
+window.onbeforeunload = function () {
+    return true;    // preventing page from loading
+}
